@@ -29,12 +29,12 @@ class MainActivity : AppCompatActivity() {
 
         adapter.setOnItemClick { note ->
             val note = "${note.toString()}"
-            val sendIntent = Intent().apply {
+            val intent = Intent().apply {
                 action = Intent.ACTION_SEND
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT, note)
             }
-            val chooser = Intent.createChooser(sendIntent, "")
+            val chooser = Intent.createChooser(intent, "")
             startActivity(chooser)
         }
 
